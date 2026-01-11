@@ -14,16 +14,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Jaggery Shop — Premium Organic Gur",
+	title: "AES Enterprise, Premium Organic Gur | এইএস এন্টারপ্রাইজ, প্রিমিয়াম অর্গানিক গুড়",
 	description:
-		"Premium organic jaggery (gur) with B2B/B2C pricing and SSLCommerz checkout.",
+		"Premium organic jaggery (gur) with B2B/B2C Retail and wholesale seller . প্রিরিমিয়াম অর্গানিক পটালি গুড় — B2B/B2C খুচরা এবং পাইকারি বিক্রেতা",
+	keywords: ["AES Enterprise", "Organic Gur", "Premium Jaggery", "B2B Gur Supplier", "B2C Jaggery Seller", "Wholesale Organic Gur", "Natural Sweetener Bangladesh", "Healthy Jaggery Options", 
+		"এইএস এন্টারপ্রাইজ", "অর্গানিক গুড়", "প্রিমিয়াম পটালি গুড়", "B2B গুড় সরবরাহকারী", "B2C পটালি গুড় বিক্রেতা", "পাইকারি অর্গানিক গুড়", "বাংলাদেশের প্রাকৃতিক মিষ্টিকারক", "স্বাস্থ্যকর পটালি গুড় বিকল্প"],
+	authors: [
+		{ name: "AES Enterprise", url: "https://aesenterprise.com" },
+	],
 	metadataBase: new URL(
 		process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
 	),
 	openGraph: {
-		title: "Jaggery Shop",
+		title: "AES Enterprise, Premium Organic Gur | এইএস এন্টারপ্রাইজ, প্রিমিয়াম অর্গানিক গুড়",
 		description:
-			"Premium organic jaggery (gur) with B2B/B2C pricing and SSLCommerz checkout.",
+			"Premium organic jaggery (gur) with B2B/B2C Retail and wholesale seller . প্রিরিমিয়াম অর্গানিক পটালি গুড় — B2B/B2C খুচরা এবং পাইকারি বিক্রেতা",
 		type: "website",
 	},
 };

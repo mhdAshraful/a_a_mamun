@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { PressableButton } from "@/components/animated/pressable-button";
 import { useStore } from "@/components/store/use-store";
+import Image from "next/image";
 
 export function HeroSection() {
 	const {
@@ -21,6 +22,16 @@ export function HeroSection() {
 		setCartOpen,
 	} = useStore();
 
+	const headings =
+		locale === "bn"
+			? "প্রিমিয়াম অর্গানিক পটালি গুড়"
+			: "Premium Organic Jaggery (Gur)";
+
+	const subheadings =
+		locale === "bn"
+			? " শতভাগ বিশুদ্ধ খেজুরের গুড় এর পাইকারি মূল্য এবং ন্যূনতম অর্ডার নিয়মের জন্য B2B এ সুইচ করুন।"
+			: "Switch to B2B for bulk pricing and minimum order rules.";
+
 	return (
 		<section className="relative overflow-hidden">
 			<div className="absolute inset-0 -z-10">
@@ -31,25 +42,47 @@ export function HeroSection() {
 			<div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
 				<div className="flex flex-col gap-6">
 					<div className="flex flex-wrap items-center justify-between gap-3">
-						<div className="flex items-center gap-2">
-							<Badge variant="secondary" className="gap-1">
-								<Sparkles className="h-4 w-4" />
-								Organic • Fresh Batch
-							</Badge>
-							<Badge variant="outline">Bangladesh</Badge>
+						<div className="flex flex-col gap-2">
+							<div className="flex items-center gap-2">
+								<Image
+									src="/icon.svg"
+									alt="AES Enterprise Logo"
+									width={30}
+									height={30}
+								/>
+								<h1 className="text-2xl font-semibold">
+									AES Enterprise
+								</h1>
+							</div>
+							<div className="flex items-center gap-2">
+								<Badge variant="default" className="gap-2">
+									<Sparkles
+										color="oklch(84.1% 0.238 128.85)"
+										fill="oklch(84.1% 0.238 128.85)"
+										stroke="oklch(84.1% 0.238 128.85)"
+									/>
+									Organic • Fresh Batch
+								</Badge>
+								<Badge
+									variant="outline"
+									className="min-h-5 h-6 w-auto gap-2 text-violet-500"
+								>
+									Bangladesh
+								</Badge>
+							</div>
 						</div>
 
 						<div className="flex flex-wrap items-center gap-3">
 							<Card className="flex items-center gap-3 px-3 py-2">
 								<span className="text-xs text-muted-foreground">
-									B2C
+									B2C &ldquo;খুচরা&rdquo;
 								</span>
 								<Switch
 									checked={channel === "B2B"}
 									onCheckedChange={() => toggleChannel()}
 								/>
 								<span className="text-xs text-muted-foreground">
-									B2B
+									B2B &ldquo;পাইকারি&rdquo;
 								</span>
 							</Card>
 
@@ -93,12 +126,10 @@ export function HeroSection() {
 					<div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-center">
 						<div className="space-y-5">
 							<h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-								Premium Organic Jaggery (Gur)
+								{headings}
 							</h1>
 							<p className="max-w-xl text-pretty text-base text-muted-foreground sm:text-lg">
-								Minimal, modern, and production-ready checkout powered
-								by SSLCommerz sandbox. Switch to B2B for bulk pricing
-								and minimum order rules.
+								{subheadings}
 							</p>
 
 							<div className="flex flex-wrap gap-3">
@@ -122,7 +153,8 @@ export function HeroSection() {
 							</p>
 						</div>
 
-						<Card className="p-5">
+						{/* Hidden on smaller screen */}
+						<Card className="sm: hidden lg:flex p-5">
 							<div className="space-y-3">
 								<div className="text-sm font-medium">Quick links</div>
 								<div className="grid gap-2 text-sm text-muted-foreground">

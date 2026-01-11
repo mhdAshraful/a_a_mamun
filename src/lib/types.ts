@@ -1,12 +1,12 @@
 export type Channel = "B2C" | "B2B";
 export type Locale = "en" | "bn";
 
-export type ProductId = "liquid" | "block";
+export type ProductId = "khejur" | "patali";
 export type VariantId =
-	| "liquid-500g"
-	| "liquid-1kg"
-	| "block-1kg"
-	| "block-5kg";
+	| "khejur-500g"
+	| "khejur-1kg"
+	| "patali-1kg"
+	| "patali-5kg";
 
 export interface ProductVariant {
 	id: VariantId;
@@ -22,6 +22,7 @@ export interface Product {
 	nameEn: string;
 	nameBn: string;
 	description: string;
+	descriptionBn: string;
 	variants: ProductVariant[];
 	imagePlaceholders: number;
 }
