@@ -1,0 +1,65 @@
+export type Channel = "B2C" | "B2B";
+export type Locale = "en" | "bn";
+
+export type ProductId = "liquid" | "block";
+export type VariantId =
+	| "liquid-500g"
+	| "liquid-1kg"
+	| "block-1kg"
+	| "block-5kg";
+
+export interface ProductVariant {
+	id: VariantId;
+	label: string;
+	weightKg: number;
+	b2cPriceBdt: number;
+	b2bPriceBdt: number;
+	b2bMinQty: number;
+}
+
+export interface Product {
+	id: ProductId;
+	nameEn: string;
+	nameBn: string;
+	description: string;
+	variants: ProductVariant[];
+	imagePlaceholders: number;
+}
+
+export interface CartLine {
+	variantId: VariantId;
+	productId: ProductId;
+	nameEn: string;
+	nameBn: string;
+	variantLabel: string;
+	weightKg: number;
+	unitPriceBdt: number;
+	qty: number;
+}
+
+export interface CartItem {
+	variantId: VariantId;
+	qty: number;
+}
+
+export interface PricingBreakdown {
+	subtotalBdt: number;
+	taxBdt: number;
+	shippingBdt: number;
+	totalBdt: number;
+	totalWeightKg: number;
+}
+
+export interface CheckoutCustomer {
+	fullName: string;
+	email: string;
+	phone: string;
+	address: string;
+	city: string;
+}
+
+export interface PaymentInitResponse {
+	gatewayPageUrl: string;
+	sessionKey?: string;
+	tranId: string;
+}

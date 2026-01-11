@@ -1,0 +1,6 @@
+-  Use Next.js 15 App Router patterns.
+-  Prefer TypeScript and keep components small.
+-  Use shadcn/ui primitives from src/components/ui.
+-  Keep styling minimal and consistent with globals.css tokens.
+-  Do not introduce new UI libraries unless required.
+-  For payments, keep SSLCommerz logic server-side in src/app/api/sslcommerz.
