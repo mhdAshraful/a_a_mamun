@@ -68,6 +68,11 @@ export function ProductCard({ product }: { product: Product }) {
 	}, []);
 
 	const title = locale === "bn" ? product.nameBn : product.nameEn;
+	const description =
+		locale === "bn" ? product.descriptionBn : product.description;
+
+	const channelLabel =
+		locale === "bn" ? (channel === "B2B" ? "পাইকারি" : "খুচরা") : channel;
 
 	return (
 		<Card ref={cardRef} className="transition-colors">
@@ -75,10 +80,10 @@ export function ProductCard({ product }: { product: Product }) {
 				<div className="flex items-start justify-between gap-3">
 					<div className="space-y-1">
 						<CardTitle className="text-lg">{title}</CardTitle>
-						<CardDescription>{product.description}</CardDescription>
+						<CardDescription>{description}</CardDescription>
 					</div>
 					<Badge variant={channel === "B2B" ? "secondary" : "outline"}>
-						{channel}
+						{channelLabel}
 					</Badge>
 				</div>
 

@@ -9,6 +9,8 @@ import { Switch } from "@/components/ui/switch";
 import { PressableButton } from "@/components/animated/pressable-button";
 import { useStore } from "@/components/store/use-store";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+import WhattspCTA from "../ui/whattsapcta";
 
 export function HeroSection() {
 	const {
@@ -25,12 +27,12 @@ export function HeroSection() {
 	const headings =
 		locale === "bn"
 			? "প্রিমিয়াম অর্গানিক পটালি গুড়"
-			: "Premium Organic Jaggery (Gur)";
+			: "Premium Organic Patali (Gur)";
 
 	const subheadings =
 		locale === "bn"
-			? " শতভাগ বিশুদ্ধ খেজুরের গুড় এর পাইকারি মূল্য এবং ন্যূনতম অর্ডার নিয়মের জন্য B2B এ সুইচ করুন।"
-			: "Switch to B2B for bulk pricing and minimum order rules.";
+			? "শতভাগ বিশুদ্ধ খেজুরের গুড়। পাইকারি মূল্য অর্ডার করতে B2B / 'পাইকারি' তে সুইচ করুন।"
+			: "Switch to B2B for bulk pricing and minimum orders.";
 
 	return (
 		<section className="relative overflow-hidden">
@@ -47,11 +49,11 @@ export function HeroSection() {
 								<Image
 									src="/icon.svg"
 									alt="AES Enterprise Logo"
-									width={30}
-									height={30}
+									width={32}
+									height={32}
 								/>
-								<h1 className="text-2xl font-semibold">
-									AES Enterprise
+								<h1 className="text-4xl font-semibold">
+									AS Enterprise
 								</h1>
 							</div>
 							<div className="flex items-center gap-2">
@@ -74,27 +76,55 @@ export function HeroSection() {
 
 						<div className="flex flex-wrap items-center gap-3">
 							<Card className="flex items-center gap-3 px-3 py-2">
-								<span className="text-xs text-muted-foreground">
-									B2C &ldquo;খুচরা&rdquo;
+								<span
+									className={cn(
+										"text-xs transition-colors",
+										channel === "B2C"
+											? "font-semibold text-violet-500"
+											: "text-muted-foreground"
+									)}
+								>
+									{locale === "bn" ? "খুচরা" : "B2C"}
 								</span>
 								<Switch
 									checked={channel === "B2B"}
 									onCheckedChange={() => toggleChannel()}
 								/>
-								<span className="text-xs text-muted-foreground">
-									B2B &ldquo;পাইকারি&rdquo;
+								<span
+									className={cn(
+										"text-xs transition-colors",
+										channel === "B2B"
+											? "font-semibold text-violet-500"
+											: "text-muted-foreground"
+									)}
+								>
+									{locale === "bn" ? "পাইকারি" : "B2B"}
 								</span>
 							</Card>
 
 							<Card className="flex items-center gap-3 px-3 py-2">
-								<span className="text-xs text-muted-foreground">
+								<span
+									className={cn(
+										"text-xs transition-colors",
+										locale === "en"
+											? "font-semibold text-violet-500"
+											: "text-muted-foreground"
+									)}
+								>
 									EN
 								</span>
 								<Switch
 									checked={locale === "bn"}
 									onCheckedChange={() => toggleLocale()}
 								/>
-								<span className="text-xs text-muted-foreground">
+								<span
+									className={cn(
+										"text-xs transition-colors",
+										locale === "bn"
+											? "font-semibold text-violet-500"
+											: "text-muted-foreground"
+									)}
+								>
 									বাংলা
 								</span>
 							</Card>
@@ -132,8 +162,10 @@ export function HeroSection() {
 								{subheadings}
 							</p>
 
+							{/* whattsapp section */}
 							<div className="flex flex-wrap gap-3">
-								<PressableButton asChild className="gap-2">
+								<WhattspCTA />
+								{/* <PressableButton className="gap-2">
 									<Link href="#products">
 										Browse products <ArrowRight className="h-4 w-4" />
 									</Link>
@@ -143,39 +175,15 @@ export function HeroSection() {
 									onClick={() => setCartOpen(true)}
 								>
 									View cart
-								</PressableButton>
+								</PressableButton> */}
 							</div>
 
-							<p className="text-xs text-muted-foreground">
+							<p className="text-xs text-violet-800">
 								{channel === "B2B"
 									? "B2B: bulk discounts + minimum 5kg order (and per-variant minimums)."
 									: "B2C: retail pricing. Free shipping thresholds apply."}
 							</p>
 						</div>
-
-						{/* Hidden on smaller screen */}
-						<Card className="sm: hidden lg:flex p-5">
-							<div className="space-y-3">
-								<div className="text-sm font-medium">Quick links</div>
-								<div className="grid gap-2 text-sm text-muted-foreground">
-									<a
-										href="#products"
-										className="hover:text-foreground"
-									>
-										Products
-									</a>
-									<a
-										href="#policies"
-										className="hover:text-foreground"
-									>
-										Policies
-									</a>
-									<a href="#contact" className="hover:text-foreground">
-										Contact
-									</a>
-								</div>
-							</div>
-						</Card>
 					</div>
 				</div>
 			</div>
