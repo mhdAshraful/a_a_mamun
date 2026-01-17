@@ -43,4 +43,17 @@ const DrawerContent = React.forwardRef<
 ));
 DrawerContent.displayName = "DrawerContent";
 
-export { Drawer, DrawerTrigger, DrawerClose, DrawerContent };
+const DrawerTitle = DialogPrimitive.Title;
+DrawerTitle.displayName = "DrawerTitle";
+
+const DrawerDescription = DialogPrimitive.Description;
+DrawerDescription.displayName = "DrawerDescription";
+
+export {
+	Drawer,
+	DrawerTrigger,
+	DrawerClose,
+	DrawerContent,
+	DrawerTitle,
+	DrawerDescription,
+};

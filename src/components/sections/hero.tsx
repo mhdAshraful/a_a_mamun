@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowRight, ShoppingBag, Sparkles, SunMoon } from "lucide-react";
+import { ShoppingBag, Sparkles, SunMoon } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";

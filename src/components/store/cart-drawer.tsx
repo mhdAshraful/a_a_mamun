@@ -6,7 +6,12 @@ import { Minus, Plus, Trash2 } from "lucide-react";
 
 import { formatBdt } from "@/lib/pricing";
 
-import { Drawer, DrawerContent } from "@/components/ui/drawer";
+import {
+	Drawer,
+	DrawerContent,
+	DrawerTitle,
+	DrawerDescription,
+} from "@/components/ui/drawer";
 import { Badge } from "@/components/ui/badge";
 import { PressableButton } from "@/components/animated/pressable-button";
 import { useStore } from "@/components/store/use-store";
@@ -40,9 +45,14 @@ export function CartDrawer() {
 	return (
 		<Drawer open={cartOpen} onOpenChange={setCartOpen}>
 			<DrawerContent ref={contentRef} className="flex flex-col">
+				<DrawerDescription className="sr-only">
+					Your shopping cart items and checkout options
+				</DrawerDescription>
 				<div className="flex items-center justify-between border-b px-5 py-4">
 					<div className="flex items-center gap-2">
-						<div className="text-base font-semibold">Cart</div>
+						<DrawerTitle className="text-base font-semibold">
+							Cart
+						</DrawerTitle>
 						<Badge variant={channel === "B2B" ? "secondary" : "outline"}>
 							{channel}
 						</Badge>

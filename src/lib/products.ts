@@ -32,7 +32,7 @@ export const PRODUCTS: Product[] = [
 	{
 		id: "khejur",
 		nameEn: "Khejur Gur",
-		nameBn: "খেজুর গুড়",
+		nameBn: "খেজুরের ঝোলা গুড়",
 		description:
 			"Premium organic khejur gur — perfect for tea, desserts, and daily sweetness.",
 		descriptionBn:
