@@ -1,5 +1,6 @@
-export type Channel = "B2C" | "B2B" | "পাইকারি " | "খুচরা";
+export type Channel = "B2C" | "B2B" | "পাইকারি" | "খুচরা";
 export type Locale = "bn" | "en";
+
 
 export type ProductId = "khejur" | "patali";
 export type VariantId =

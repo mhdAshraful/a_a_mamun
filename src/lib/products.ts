@@ -58,3 +58,12 @@ export const PRODUCTS: Product[] = [
 		],
 	},
 ];
+
+export const info = {
+	nameEn: "AS Enterprise",
+	nameBn: "এ এস এন্টারপ্রাইজ",
+	addressEn: "Jossore, Bangladesh",
+	addressBn: "যশোর, বাংলাদেশ",
+	email: "orders@asenterprise.com",
+	phone: "+8801968976724",
+};

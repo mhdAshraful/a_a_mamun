@@ -1,18 +1,24 @@
+"use client";
+import { useStore } from "../store/use-store";
+import { info } from "@/lib/products";
 export function FooterSection() {
+	const { locale } = useStore();
 	return (
 		<footer className="border-t">
 			<div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
 				<div className="grid gap-8 sm:grid-cols-2">
 					<div id="contact" className="space-y-2">
-						<div className="text-sm font-semibold">Jaggery Shop</div>
-						<div className="text-sm text-muted-foreground">
-							Dhaka, Bangladesh
+						<div className="text-sm font-semibold">
+							{locale === "en" ? info.nameEn : info.nameBn}
 						</div>
 						<div className="text-sm text-muted-foreground">
-							Email: hello@example.com
+							{locale === "en" ? info.addressEn : info.addressBn}
 						</div>
 						<div className="text-sm text-muted-foreground">
-							Phone: +880 1X XXXXXXXX
+							Email: {info.email}
+						</div>
+						<div className="text-sm text-muted-foreground">
+							Phone: {info.phone}
 						</div>
 					</div>
 
@@ -33,7 +39,7 @@ export function FooterSection() {
 				</div>
 
 				<div className="mt-8 text-xs text-muted-foreground">
-					© {new Date().getFullYear()} Jaggery Shop. All rights reserved.
+					© {new Date().getFullYear()} AS Enterprise. All rights reserved.
 				</div>
 			</div>
 		</footer>
