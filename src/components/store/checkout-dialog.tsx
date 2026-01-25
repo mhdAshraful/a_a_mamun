@@ -45,7 +45,7 @@ function createInvoiceHtml(params: {
           <td style="padding:8px 0; text-align:right;">${i.qty}</td>
           <td style="padding:8px 0; text-align:right;">${i.lineTotal}</td>
         </tr>
-      `
+      `,
 		)
 		.join("\n");
 
@@ -87,10 +87,6 @@ function createInvoiceHtml(params: {
       <div style="display:flex; justify-content:space-between; padding:6px 0; color:#444;"><span>Shipping</span><span>${params.shipping}</span></div>
       <div style="display:flex; justify-content:space-between; padding:10px 0; border-top:1px solid #ddd; font-weight:700;"><span>Total</span><span>${params.total}</span></div>
     </div>
-
-    <script>
-      window.onload = () => window.print();
-    </script>
   </body>
 </html>
   `.trim();
@@ -128,7 +124,7 @@ export function CheckoutDialog() {
 			{ name: "Tax", value: pricing.taxBdt },
 			{ name: "Shipping", value: pricing.shippingBdt },
 		],
-		[pricing]
+		[pricing],
 	);
 
 	const canSubmit =
@@ -157,7 +153,7 @@ export function CheckoutDialog() {
 					lines,
 					pricing,
 					createdAt: new Date().toISOString(),
-				})
+				}),
 			);
 
 			const res = await fetch("/api/sslcommerz/init", {
@@ -198,11 +194,16 @@ export function CheckoutDialog() {
 			total: formatBdt(pricing.totalBdt),
 		});
 
-		const w = window.open("", "_blank", "noopener,noreferrer");
+		const w = window.open("", "_blank");
 		if (!w) return;
 		w.document.open();
 		w.document.write(invoice);
 		w.document.close();
+		// Wait for content to render before printing
+		setTimeout(() => {
+			w.focus();
+			w.print();
+		}, 250);
 	}
 
 	return (
@@ -310,7 +311,7 @@ export function CheckoutDialog() {
 						) : null}
 
 						<DialogFooter className="flex flex-col gap-2 sm:flex-row sm:justify-between">
-							<div className="flex gap-2">
+							<div className="flex flex-col gap-2">
 								<PressableButton
 									type="button"
 									variant="outline"

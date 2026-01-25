@@ -40,7 +40,7 @@ export function HeroSection() {
 				<div className="absolute -bottom-55 -right-40 h-130 w-140 rounded-full bg-linear-to-tr from-orange-500/20 via-amber-500/10 to-transparent blur-3xl" />
 			</div>
 
-			<div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
+			<div className="mx-auto max-w-6xl p-4 md:px-6 lg:px-10 lg:py-20">
 				<div className="flex flex-col gap-6">
 					<div className="flex flex-wrap items-center justify-between gap-3">
 						<div className="flex flex-col gap-2">
@@ -161,10 +161,10 @@ export function HeroSection() {
 									onClick={() => setCartOpen(true)}
 									className="mx-2 gap-2 items-center"
 								>
-									<ShoppingBag className="h-4 w-4" />
+									<ShoppingBag className="h-5 w-5" />
 									Cart
 									{itemCount > 0 ? (
-										<span className="rounded-full bg-foreground text-xs text-background">
+										<span className="rounded-full px-2 bg-foreground text-xs text-background">
 											{itemCount}
 										</span>
 									) : null}
