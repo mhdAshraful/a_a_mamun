@@ -151,7 +151,7 @@ export function HeroSection() {
 											"h-4 w-4 ",
 											theme === "light"
 												? "text-orange-300"
-												: "text-orange-700",
+												: "text-violet-700",
 										)}
 									/>
 								</div>
