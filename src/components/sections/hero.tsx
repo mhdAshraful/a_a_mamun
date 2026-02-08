@@ -46,7 +46,7 @@ export function HeroSection() {
 						<div className="flex flex-col gap-2">
 							<div className="flex items-center gap-2">
 								<Image
-									src="/icon.svg"
+									src="/icon.png"
 									alt="AES Enterprise Logo"
 									width={32}
 									height={32}

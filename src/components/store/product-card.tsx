@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/card";
 import { PressableButton } from "@/components/animated/pressable-button";
 import { useStore } from "@/components/store/use-store";
+import Image from "next/image";
 
 export function ProductCard({ product }: { product: Product }) {
 	const { channel, locale, addItem } = useStore();
@@ -95,10 +96,19 @@ export function ProductCard({ product }: { product: Product }) {
 								ref={(node) => {
 									placeholdersRef.current[idx] = node;
 								}}
-								className="aspect-square rounded-md border bg-linear-to-br from-muted/80 to-muted"
+								className="relative aspect-square rounded-md border bg-linear-to-br from-muted/80 to-muted"
 								aria-label="Image placeholder"
-							/>
-						)
+							>
+								<Image
+									src={product.images[idx]}
+									alt={title}
+									fill
+									sizes="100%"
+									className="object-cover rounded-md"
+									loading="lazy"
+								/>
+							</div>
+						),
 					)}
 				</div>
 			</CardHeader>

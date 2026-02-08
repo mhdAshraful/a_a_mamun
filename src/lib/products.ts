@@ -10,6 +10,13 @@ export const PRODUCTS: Product[] = [
 		descriptionBn:
 			"ঐতিহ্যবাহী পাটালি গুড় একটি সমৃদ্ধ সুগন্ধ সহ — রান্না এবং বড় পরিমাণে ব্যবহারের জন্য আদর্শ।",
 		imagePlaceholders: 5,
+		images: [
+			"/images/p-1.jpg",
+			"/images/p-2.jpg",
+			"/images/p-3.jpg",
+			"/images/p-4.jpg",
+			"/images/p-5.jpg",
+		],
 		variants: [
 			{
 				id: "patali-1kg",
@@ -38,6 +45,13 @@ export const PRODUCTS: Product[] = [
 		descriptionBn:
 			"প্রিমিয়াম অর্গানিক খেজুরের ঝোলা গুড় — চা, মিষ্টান্ন এবং দৈনন্দিন মিষ্টতার জন্য উপযুক্ত।",
 		imagePlaceholders: 5,
+		images: [
+			"/images/k-1.jpg",
+			"/images/k-2.jpg",
+			"/images/k-3.jpg",
+			"/images/k-4.jpg",
+			"/images/k-5.jpg",
+		],
 		variants: [
 			{
 				id: "khejur-500g",

@@ -26,6 +26,7 @@ export interface Product {
 	descriptionBn: string;
 	variants: ProductVariant[];
 	imagePlaceholders: number;
+	images: string[];
 }
 
 export interface CartLine {
